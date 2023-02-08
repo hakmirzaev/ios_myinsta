@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpScreen: View {
+    @Environment(\.presentationMode) var presentation
     @State var fullname = ""
     @State var email = ""
     @State var password = ""
@@ -45,13 +46,24 @@ struct SignUpScreen: View {
                     Spacer()
                     HStack{
                         Text("already_have_account").foregroundColor(.white)
-                        NavigationLink(destination: SignUpScreen(), label: {
+                        Button(action: {
+                            self.presentation.wrappedValue.dismiss()
+                        }, label: {
                             Text("sign_in").foregroundColor(.white).fontWeight(.bold)
                         })
                     }.frame(maxWidth: .infinity, maxHeight: 70)
                 }.padding()
             }.edgesIgnoringSafeArea(.all)
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            self.presentation.wrappedValue.dismiss()
+        }, label: {
+            HStack{
+                Image(systemName: "chevron.backward").foregroundColor(.white)
+                Text("Back").foregroundColor(.white)
+            }
+        }))
     }
 }
 
