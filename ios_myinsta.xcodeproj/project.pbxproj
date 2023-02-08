@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E923A7E2993BD06006A175A /* ios_myinstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */; };
-		0E923A802993BD06006A175A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A7F2993BD06006A175A /* ContentView.swift */; };
 		0E923A822993BD08006A175A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E923A812993BD08006A175A /* Assets.xcassets */; };
 		0E923A852993BD08006A175A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E923A842993BD08006A175A /* Preview Assets.xcassets */; };
 		0E923A872993BD08006A175A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A862993BD08006A175A /* Persistence.swift */; };
@@ -16,6 +15,10 @@
 		0E923A952993BD08006A175A /* ios_myinstaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A942993BD08006A175A /* ios_myinstaTests.swift */; };
 		0E923A9F2993BD08006A175A /* ios_myinstaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A9E2993BD08006A175A /* ios_myinstaUITests.swift */; };
 		0E923AA12993BD08006A175A /* ios_myinstaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AA02993BD08006A175A /* ios_myinstaUITestsLaunchTests.swift */; };
+		0E923AB02993BD4C006A175A /* StarterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AAF2993BD4C006A175A /* StarterScreen.swift */; };
+		0E923AB22993BD55006A175A /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB12993BD55006A175A /* SignInScreen.swift */; };
+		0E923AB42993BD73006A175A /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB32993BD73006A175A /* SignUpScreen.swift */; };
+		0E923AB72993BDEC006A175A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB62993BDEC006A175A /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 /* Begin PBXFileReference section */
 		0E923A7A2993BD06006A175A /* ios_myinsta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_myinsta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaApp.swift; sourceTree = "<group>"; };
-		0E923A7F2993BD06006A175A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E923A812993BD08006A175A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E923A842993BD08006A175A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E923A862993BD08006A175A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		0E923A9A2993BD08006A175A /* ios_myinstaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_myinstaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E923A9E2993BD08006A175A /* ios_myinstaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaUITests.swift; sourceTree = "<group>"; };
 		0E923AA02993BD08006A175A /* ios_myinstaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E923AAF2993BD4C006A175A /* StarterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterScreen.swift; sourceTree = "<group>"; };
+		0E923AB12993BD55006A175A /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
+		0E923AB32993BD73006A175A /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		0E923AB62993BDEC006A175A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,12 @@
 		0E923A7C2993BD06006A175A /* ios_myinsta */ = {
 			isa = PBXGroup;
 			children = (
+				0E923AAE2993BD31006A175A /* screens */,
+				0E923AB52993BDDF006A175A /* utils */,
+				0E923AAD2993BD1D006A175A /* apputils */,
 				0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */,
-				0E923A7F2993BD06006A175A /* ContentView.swift */,
-				0E923A812993BD08006A175A /* Assets.xcassets */,
 				0E923A862993BD08006A175A /* Persistence.swift */,
 				0E923A8B2993BD08006A175A /* Info.plist */,
-				0E923A882993BD08006A175A /* ios_myinsta.xcdatamodeld */,
 				0E923A832993BD08006A175A /* Preview Content */,
 			);
 			path = ios_myinsta;
@@ -133,6 +139,33 @@
 				0E923AA02993BD08006A175A /* ios_myinstaUITestsLaunchTests.swift */,
 			);
 			path = ios_myinstaUITests;
+			sourceTree = "<group>";
+		};
+		0E923AAD2993BD1D006A175A /* apputils */ = {
+			isa = PBXGroup;
+			children = (
+				0E923A882993BD08006A175A /* ios_myinsta.xcdatamodeld */,
+				0E923A812993BD08006A175A /* Assets.xcassets */,
+			);
+			path = apputils;
+			sourceTree = "<group>";
+		};
+		0E923AAE2993BD31006A175A /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				0E923AAF2993BD4C006A175A /* StarterScreen.swift */,
+				0E923AB12993BD55006A175A /* SignInScreen.swift */,
+				0E923AB32993BD73006A175A /* SignUpScreen.swift */,
+			);
+			path = screens;
+			sourceTree = "<group>";
+		};
+		0E923AB52993BDDF006A175A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				0E923AB62993BDEC006A175A /* Utils.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +299,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E923A872993BD08006A175A /* Persistence.swift in Sources */,
-				0E923A802993BD06006A175A /* ContentView.swift in Sources */,
+				0E923AB22993BD55006A175A /* SignInScreen.swift in Sources */,
 				0E923A7E2993BD06006A175A /* ios_myinstaApp.swift in Sources */,
+				0E923AB72993BDEC006A175A /* Utils.swift in Sources */,
 				0E923A8A2993BD08006A175A /* ios_myinsta.xcdatamodeld in Sources */,
+				0E923AB02993BD4C006A175A /* StarterScreen.swift in Sources */,
+				0E923AB42993BD73006A175A /* SignUpScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +465,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,6 +494,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
