@@ -17,15 +17,16 @@ struct SignInScreen: View {
                 LinearGradient(gradient: Gradient(colors: [Utils.color1, Utils.color2]), startPoint: .top, endPoint: .bottom)
                 VStack(spacing: 0){
                     Spacer()
-                    Text("Instagram").foregroundColor(.white).font(.system(size: 35))
-                    TextField("Email", text: $email).frame(height: 50).padding(.leading, 10)
-                        .foregroundColor(.white).background(.white.opacity(0.4)).cornerRadius(8).padding(.top, 30)
-                    SecureField("Password", text: $password).frame(height: 50).padding(.leading, 10)
+                    Text("app_name").foregroundColor(.white)
+                        .font(Font.custom("Billabong", size: 45))
+                    TextField("email", text: $email).frame(height: 50).padding(.leading, 10)
+                        .foregroundColor(.white).background(.white.opacity(0.4)).cornerRadius(8).padding(.top, 10)
+                    SecureField("password", text: $password).frame(height: 50).padding(.leading, 10)
                         .foregroundColor(.white).background(.white.opacity(0.4)).cornerRadius(8).padding(.top, 10)
                     Button(action: {
                         
                     }, label: {
-                        Text("Sign In")
+                        Text("sign_in")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -37,9 +38,9 @@ struct SignInScreen: View {
                     }).padding(.top, 10)
                     Spacer()
                     HStack{
-                        Text("Don't have an account?").foregroundColor(.white)
+                        Text("dont_have_account").foregroundColor(.white)
                         NavigationLink(destination: SignUpScreen(), label: {
-                            Text("SignUp").foregroundColor(.white).fontWeight(.bold)
+                            Text("sign_up").foregroundColor(.white).fontWeight(.bold)
                         })
                     }.frame(maxWidth: .infinity, maxHeight: 70)
                 }.padding()

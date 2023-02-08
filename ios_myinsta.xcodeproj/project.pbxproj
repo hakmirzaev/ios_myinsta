@@ -19,6 +19,8 @@
 		0E923AB22993BD55006A175A /* SignInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB12993BD55006A175A /* SignInScreen.swift */; };
 		0E923AB42993BD73006A175A /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB32993BD73006A175A /* SignUpScreen.swift */; };
 		0E923AB72993BDEC006A175A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923AB62993BDEC006A175A /* Utils.swift */; };
+		0EBA3AEA29941F5900B85BA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EBA3AEC29941F5900B85BA7 /* Localizable.strings */; };
+		0EBA3AEF29941F8C00B85BA7 /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EBA3AEE29941F8800B85BA7 /* Billabong.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		0E923AB12993BD55006A175A /* SignInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInScreen.swift; sourceTree = "<group>"; };
 		0E923AB32993BD73006A175A /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		0E923AB62993BDEC006A175A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		0EBA3AEB29941F5900B85BA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0EBA3AED29941F6500B85BA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0EBA3AEE29941F8800B85BA7 /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
+		0EBA3AF029941FBA00B85BA7 /* ios-myinsta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ios-myinsta-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		0E923A7C2993BD06006A175A /* ios_myinsta */ = {
 			isa = PBXGroup;
 			children = (
+				0EBA3AF029941FBA00B85BA7 /* ios-myinsta-Info.plist */,
 				0E923AAE2993BD31006A175A /* screens */,
 				0E923AB52993BDDF006A175A /* utils */,
 				0E923AAD2993BD1D006A175A /* apputils */,
@@ -144,8 +151,10 @@
 		0E923AAD2993BD1D006A175A /* apputils */ = {
 			isa = PBXGroup;
 			children = (
+				0EBA3AEE29941F8800B85BA7 /* Billabong.ttf */,
 				0E923A882993BD08006A175A /* ios_myinsta.xcdatamodeld */,
 				0E923A812993BD08006A175A /* Assets.xcassets */,
+				0EBA3AEC29941F5900B85BA7 /* Localizable.strings */,
 			);
 			path = apputils;
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 0E923A712993BD06006A175A;
 			productRefGroup = 0E923A7B2993BD06006A175A /* Products */;
@@ -273,7 +283,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E923A852993BD08006A175A /* Preview Assets.xcassets in Resources */,
+				0EBA3AEA29941F5900B85BA7 /* Localizable.strings in Resources */,
 				0E923A822993BD08006A175A /* Assets.xcassets in Resources */,
+				0EBA3AEF29941F8C00B85BA7 /* Billabong.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,11 +352,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		0EBA3AEC29941F5900B85BA7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EBA3AEB29941F5900B85BA7 /* en */,
+				0EBA3AED29941F6500B85BA7 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		0E923AA22993BD08006A175A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -405,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -465,6 +491,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-myinsta-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,6 +521,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios_myinsta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ios-myinsta-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
