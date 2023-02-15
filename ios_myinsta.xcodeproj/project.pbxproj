@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8E3DD2299D4B120008C638 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DD1299D4B120008C638 /* HomeScreen.swift */; };
+		0E8E3DD4299D4B1D0008C638 /* HomeFeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DD3299D4B1D0008C638 /* HomeFeedScreen.swift */; };
+		0E8E3DD6299D4B480008C638 /* HomeSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DD5299D4B480008C638 /* HomeSearchScreen.swift */; };
+		0E8E3DD8299D4B520008C638 /* HomeUploadScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DD7299D4B520008C638 /* HomeUploadScreen.swift */; };
+		0E8E3DDA299D4B600008C638 /* HomeLikesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DD9299D4B600008C638 /* HomeLikesScreen.swift */; };
+		0E8E3DDC299D4B6E0008C638 /* HomeProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DDB299D4B6E0008C638 /* HomeProfileScreen.swift */; };
+		0E8E3DDF299D4BA60008C638 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DDE299D4BA60008C638 /* SessionStore.swift */; };
+		0E8E3DE2299D4C360008C638 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DE1299D4C360008C638 /* User.swift */; };
+		0E8E3DE4299D51C30008C638 /* Coordinators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DE3299D51C30008C638 /* Coordinators.swift */; };
+		0E8E3DE6299D51D20008C638 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E3DE5299D51D20008C638 /* ImagePickerView.swift */; };
 		0E923A7E2993BD06006A175A /* ios_myinstaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */; };
 		0E923A822993BD08006A175A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E923A812993BD08006A175A /* Assets.xcassets */; };
 		0E923A852993BD08006A175A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E923A842993BD08006A175A /* Preview Assets.xcassets */; };
@@ -41,6 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E8E3DD1299D4B120008C638 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		0E8E3DD3299D4B1D0008C638 /* HomeFeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedScreen.swift; sourceTree = "<group>"; };
+		0E8E3DD5299D4B480008C638 /* HomeSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchScreen.swift; sourceTree = "<group>"; };
+		0E8E3DD7299D4B520008C638 /* HomeUploadScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUploadScreen.swift; sourceTree = "<group>"; };
+		0E8E3DD9299D4B600008C638 /* HomeLikesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLikesScreen.swift; sourceTree = "<group>"; };
+		0E8E3DDB299D4B6E0008C638 /* HomeProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProfileScreen.swift; sourceTree = "<group>"; };
+		0E8E3DDE299D4BA60008C638 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		0E8E3DE1299D4C360008C638 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0E8E3DE3299D51C30008C638 /* Coordinators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinators.swift; sourceTree = "<group>"; };
+		0E8E3DE5299D51D20008C638 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		0E923A7A2993BD06006A175A /* ios_myinsta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_myinsta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_myinstaApp.swift; sourceTree = "<group>"; };
 		0E923A812993BD08006A175A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E8E3DDD299D4B9A0008C638 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E3DDE299D4BA60008C638 /* SessionStore.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		0E8E3DE0299D4C2E0008C638 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E3DE1299D4C360008C638 /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		0E923A712993BD06006A175A = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +147,8 @@
 		0E923A7C2993BD06006A175A /* ios_myinsta */ = {
 			isa = PBXGroup;
 			children = (
+				0E8E3DE0299D4C2E0008C638 /* model */,
+				0E8E3DDD299D4B9A0008C638 /* services */,
 				0EBA3AF029941FBA00B85BA7 /* ios-myinsta-Info.plist */,
 				0E923AAE2993BD31006A175A /* screens */,
 				0E923AB52993BDDF006A175A /* utils */,
@@ -165,6 +203,12 @@
 				0E923AAF2993BD4C006A175A /* StarterScreen.swift */,
 				0E923AB12993BD55006A175A /* SignInScreen.swift */,
 				0E923AB32993BD73006A175A /* SignUpScreen.swift */,
+				0E8E3DD1299D4B120008C638 /* HomeScreen.swift */,
+				0E8E3DD3299D4B1D0008C638 /* HomeFeedScreen.swift */,
+				0E8E3DD5299D4B480008C638 /* HomeSearchScreen.swift */,
+				0E8E3DD7299D4B520008C638 /* HomeUploadScreen.swift */,
+				0E8E3DD9299D4B600008C638 /* HomeLikesScreen.swift */,
+				0E8E3DDB299D4B6E0008C638 /* HomeProfileScreen.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -173,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				0E923AB62993BDEC006A175A /* Utils.swift */,
+				0E8E3DE3299D51C30008C638 /* Coordinators.swift */,
+				0E8E3DE5299D51D20008C638 /* ImagePickerView.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -310,13 +356,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E8E3DD8299D4B520008C638 /* HomeUploadScreen.swift in Sources */,
+				0E8E3DD6299D4B480008C638 /* HomeSearchScreen.swift in Sources */,
 				0E923A872993BD08006A175A /* Persistence.swift in Sources */,
 				0E923AB22993BD55006A175A /* SignInScreen.swift in Sources */,
+				0E8E3DE4299D51C30008C638 /* Coordinators.swift in Sources */,
 				0E923A7E2993BD06006A175A /* ios_myinstaApp.swift in Sources */,
+				0E8E3DDA299D4B600008C638 /* HomeLikesScreen.swift in Sources */,
+				0E8E3DDC299D4B6E0008C638 /* HomeProfileScreen.swift in Sources */,
 				0E923AB72993BDEC006A175A /* Utils.swift in Sources */,
+				0E8E3DE2299D4C360008C638 /* User.swift in Sources */,
+				0E8E3DDF299D4BA60008C638 /* SessionStore.swift in Sources */,
+				0E8E3DD2299D4B120008C638 /* HomeScreen.swift in Sources */,
 				0E923A8A2993BD08006A175A /* ios_myinsta.xcdatamodeld in Sources */,
 				0E923AB02993BD4C006A175A /* StarterScreen.swift in Sources */,
 				0E923AB42993BD73006A175A /* SignUpScreen.swift in Sources */,
+				0E8E3DD4299D4B1D0008C638 /* HomeFeedScreen.swift in Sources */,
+				0E8E3DE6299D51D20008C638 /* ImagePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +549,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You can take photos to document your job.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can select photos to attach to reports.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -523,6 +581,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ios-myinsta-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = myInstagram;
+				INFOPLIST_KEY_NSCameraUsageDescription = "You can take photos to document your job.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "You can select photos to attach to reports.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
