@@ -82,6 +82,23 @@ struct HomeProfileScreen: View {
                         }.frame(maxWidth: UIScreen.width/3, maxHeight: 60)
                     }.padding(.top, 10).frame(height: 60)
                     
+                    HStack{
+                        Button(action: {
+                            level = 1
+                            columns = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15)), count: 1)
+                        }, label: {
+                            Image("ic_list").resizable().foregroundColor(.black.opacity(0.5))
+                                .frame(width: 30, height: 30)
+                        }).frame(maxWidth: UIScreen.width)
+                        
+                        Button(action: {
+                            level = 2
+                            columns = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15)), count: 2)
+                        }, label: {
+                            Image("ic_grid").resizable().foregroundColor(.black.opacity(0.5))
+                                .frame(width: 30, height: 30)
+                        }).frame(maxWidth: UIScreen.width)
+                    }.padding(.top, 10).padding(.bottom, 10)
                     //my posts
                     ScrollView{
                         LazyVGrid(columns: columns, spacing: 10) {
