@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HomeProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
+    @State var action = false
+    @State var isImagePickerDisplay = false
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
     
     @State var level = 2
     @State var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15)), count: 2)
@@ -25,21 +29,44 @@ struct HomeProfileScreen: View {
             ZStack{
                 VStack(spacing: 0){
                     ZStack{
-                        VStack{
-                            Image("ic_person").resizable().clipShape(Circle())
-                                .frame(width: 70, height: 70)
-                                .padding(.all, 2)
-                        }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
+                        if selectedImage == nil {
+                            VStack{
+                                Image("ic_person").resizable().clipShape(Circle())
+                                    .frame(width: 70, height: 70)
+                                    .padding(.all, 2)
+                            }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
+                        } else {
+                            VStack{
+                                Image(uiImage: selectedImage!).resizable().clipShape(Circle())
+                                    .frame(width: 70, height: 70)
+                                    .padding(.all, 2)
+                            }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
+                        }
+                        
                         HStack{
                             Spacer()
                             VStack{
                                 Spacer()
                                 Button(action: {
-                                    
+                                    self.action.toggle()
                                 }, label: {
                                     Image(systemName: "plus.circle.fill")
                                         .resizable()
                                         .frame(width: 20, height: 20)
+                                }).actionSheet(isPresented: $action, content: {
+                                    ActionSheet(title: Text("Actions"), buttons: [
+                                        .cancel(),
+                                        .default(Text("Pick Photo")) {
+                                            self.sourceType = .photoLibrary
+                                            self.isImagePickerDisplay.toggle()
+                                        },
+                                        .default(Text("Take Photo")) {
+                                            self.sourceType = .camera
+                                        }
+                                    ])
+                                })
+                                .sheet(isPresented: $isImagePickerDisplay, content: {
+                                    ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
                                 })
                             }
                         }.frame(width: 77, height: 77)
