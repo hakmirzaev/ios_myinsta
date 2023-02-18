@@ -9,10 +9,26 @@ import SwiftUI
 
 struct SignUpScreen: View {
     @Environment(\.presentationMode) var presentation
-    @State var fullname = ""
-    @State var email = ""
-    @State var password = ""
-    @State var cpassword = ""
+    @ObservedObject var viewModel = SignUpViewModel()
+    @EnvironmentObject var session: SessionStore
+    @State var fullname = "Bekhruzjon"
+    @State var email = "hakmirzaevbekhruzjon@gmail.com"
+    @State var password = "123qwe"
+    @State var cpassword = "123qwe"
+    
+    func doSignUp(){
+        viewModel.apiSignUp(email: email, password: password, completion: { result in
+            if !result{
+                //when error, show dialog or toast
+            } else {
+                
+                var user = User(email: email, displayName: fullname, password: password, imgUser: "")
+                user.uid = session.session?.uid
+                // save user to Firestore
+                presentation.wrappedValue.dismiss()
+            }
+        })
+    }
     
     var body: some View {
         NavigationView{
@@ -31,7 +47,7 @@ struct SignUpScreen: View {
                     SecureField("cpassword", text: $cpassword).frame(height: 50).padding(.leading, 10)
                         .foregroundColor(.white).background(.white.opacity(0.4)).cornerRadius(8).padding(.top, 10)
                     Button(action: {
-                        
+                        doSignUp()
                     }, label: {
                         Text("sign_up")
                             .foregroundColor(.white)
@@ -53,6 +69,9 @@ struct SignUpScreen: View {
                         })
                     }.frame(maxWidth: .infinity, maxHeight: 70)
                 }.padding()
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }.edgesIgnoringSafeArea(.all)
         }
         .navigationBarBackButtonHidden(true)

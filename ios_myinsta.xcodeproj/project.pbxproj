@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3B2A5429A08F3300AC6863 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E3B2A5329A08F3300AC6863 /* GoogleService-Info.plist */; };
+		0E3B2A5629A0939D00AC6863 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B2A5529A0939D00AC6863 /* SignInViewModel.swift */; };
+		0E3B2A5829A0952500AC6863 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B2A5729A0952500AC6863 /* SignUpViewModel.swift */; };
 		0E7CDA40299EAC48007263FA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CDA3F299EAC48007263FA /* SearchViewModel.swift */; };
 		0E7CDA42299EAF6B007263FA /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CDA41299EAF6B007263FA /* UserCell.swift */; };
 		0E7CDA44299EB1B3007263FA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CDA43299EB1B3007263FA /* ProfileViewModel.swift */; };
@@ -63,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		028D172EEE58561FF9D260B0 /* Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinsta-ios_myinstaUITests/Pods-ios_myinsta-ios_myinstaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E3B2A5329A08F3300AC6863 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E3B2A5529A0939D00AC6863 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		0E3B2A5729A0952500AC6863 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0E7CDA3F299EAC48007263FA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0E7CDA41299EAF6B007263FA /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		0E7CDA43299EB1B3007263FA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 				0E923AAD2993BD1D006A175A /* apputils */,
 				0E923A7D2993BD06006A175A /* ios_myinstaApp.swift */,
 				0E923A862993BD08006A175A /* Persistence.swift */,
+				0E3B2A5329A08F3300AC6863 /* GoogleService-Info.plist */,
 				0E923A8B2993BD08006A175A /* Info.plist */,
 				0E923A832993BD08006A175A /* Preview Content */,
 			);
@@ -266,6 +273,8 @@
 				0EAF85D8299E03790069B341 /* LikesViewModel.swift */,
 				0E7CDA3F299EAC48007263FA /* SearchViewModel.swift */,
 				0E7CDA43299EB1B3007263FA /* ProfileViewModel.swift */,
+				0E3B2A5529A0939D00AC6863 /* SignInViewModel.swift */,
+				0E3B2A5729A0952500AC6863 /* SignUpViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -415,6 +424,7 @@
 			files = (
 				0E923A852993BD08006A175A /* Preview Assets.xcassets in Resources */,
 				0EBA3AEA29941F5900B85BA7 /* Localizable.strings in Resources */,
+				0E3B2A5429A08F3300AC6863 /* GoogleService-Info.plist in Resources */,
 				0E923A822993BD08006A175A /* Assets.xcassets in Resources */,
 				0EBA3AEF29941F8C00B85BA7 /* Billabong.ttf in Resources */,
 			);
@@ -548,6 +558,7 @@
 				0E8E3DD8299D4B520008C638 /* HomeUploadScreen.swift in Sources */,
 				0E8E3DD6299D4B480008C638 /* HomeSearchScreen.swift in Sources */,
 				0E923A872993BD08006A175A /* Persistence.swift in Sources */,
+				0E3B2A5629A0939D00AC6863 /* SignInViewModel.swift in Sources */,
 				0E923AB22993BD55006A175A /* SignInScreen.swift in Sources */,
 				0E7CDA46299EB801007263FA /* MyPostCell.swift in Sources */,
 				0E8E3DE4299D51C30008C638 /* Coordinators.swift in Sources */,
@@ -556,6 +567,7 @@
 				0E8E3DDA299D4B600008C638 /* HomeLikesScreen.swift in Sources */,
 				0E8E3DDC299D4B6E0008C638 /* HomeProfileScreen.swift in Sources */,
 				0EAF85D2299DFE3C0069B341 /* FeedViewModel.swift in Sources */,
+				0E3B2A5829A0952500AC6863 /* SignUpViewModel.swift in Sources */,
 				0E923AB72993BDEC006A175A /* Utils.swift in Sources */,
 				0E7CDA42299EAF6B007263FA /* UserCell.swift in Sources */,
 				0E8E3DE2299D4C360008C638 /* User.swift in Sources */,

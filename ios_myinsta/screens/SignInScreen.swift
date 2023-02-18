@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SignInScreen: View {
-    @State var email = ""
-    @State var password = ""
+    @ObservedObject var viewModel = SignInViewModel()
+    @State var email = "hakmirzaevbekhruzjon@gmail.com"
+    @State var password = "123qwe"
+    
+    func doSignIn(){
+        viewModel.apiSignIn(email: email, password: password, completion: {result in
+            if !result {
+                //when error, show dialog or toast
+            }
+        })
+    }
     
     var body: some View {
         NavigationView{
@@ -24,7 +33,7 @@ struct SignInScreen: View {
                     SecureField("password", text: $password).frame(height: 50).padding(.leading, 10)
                         .foregroundColor(.white).background(.white.opacity(0.4)).cornerRadius(8).padding(.top, 10)
                     Button(action: {
-                        
+                        doSignIn()
                     }, label: {
                         Text("sign_in")
                             .foregroundColor(.white)
@@ -44,6 +53,9 @@ struct SignInScreen: View {
                         })
                     }.frame(maxWidth: .infinity, maxHeight: 70)
                 }.padding()
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }.edgesIgnoringSafeArea(.all)
         }
     }

@@ -19,4 +19,10 @@ class ProfileViewModel: ObservableObject{
         isLoading = false
         completion()
     }
+    
+    func apiSignOut() {
+        isLoading = true
+        SessionStore().signOut()
+        isLoading = false
+    }
 }

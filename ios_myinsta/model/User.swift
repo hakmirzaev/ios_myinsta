@@ -1,9 +1,3 @@
-//
-//  User.swift
-//  ios_myinsta
-//
-//  Created by Bekhruz Hakmirzaev on 15/02/23.
-//
 
 import Foundation
 
@@ -11,8 +5,24 @@ struct User: Hashable {
     var uid: String?
     var email: String?
     var displayName: String?
+    var password: String?
+    var imgUser: String?
     
-    init(uid: String, email: String?, displayName: String?) {
+    init(email: String?, displayName: String?, password: String?, imgUser: String){
+        self.email = email
+        self.displayName = displayName
+        self.password = password
+        self.imgUser = imgUser
+    }
+    
+    init(uid:String, email: String?, displayName: String?, password: String?, imgUser: String){
+        self.uid = uid
+        self.email = email
+        self.displayName = displayName
+        self.password = password
+        self.imgUser = imgUser
+    }
+    init(uid:String, email: String?, displayName: String?){
         self.uid = uid
         self.email = email
         self.displayName = displayName

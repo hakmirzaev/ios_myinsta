@@ -13,6 +13,7 @@ struct HomeProfileScreen: View {
     @State var isImagePickerDisplay = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
+    @State var showingAlert = false
     
     @State var level = 2
     @State var columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum: UIScreen.width/2 - 15)), count: 2)
@@ -135,12 +136,20 @@ struct HomeProfileScreen: View {
                         }
                     }.padding(.top, 10)
                 }.padding(.all, 20)
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }
             .navigationBarItems(trailing: Button(action: {
-                
+                self.showingAlert.toggle()
             }, label: {
                 Image(systemName: "pip.exit").font(.system(size: 15))
-            }))
+            }).alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("Signout"), message: Text("Do you want to signout?"), primaryButton: .destructive(Text("Confirm"), action: {
+                    viewModel.apiSignOut()
+                }), secondaryButton: .cancel())
+            })
+            )
             .navigationBarTitle("Profile", displayMode: .inline)
         }.onAppear{
             viewModel.apiPostList {
