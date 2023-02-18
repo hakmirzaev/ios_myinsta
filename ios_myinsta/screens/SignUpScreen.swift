@@ -12,22 +12,31 @@ struct SignUpScreen: View {
     @ObservedObject var viewModel = SignUpViewModel()
     @EnvironmentObject var session: SessionStore
     @State var fullname = "Bekhruzjon"
-    @State var email = "hakmirzaevbekhruzjon@gmail.com"
-    @State var password = "123qwe"
-    @State var cpassword = "123qwe"
+    @State var email = "hakmirzaev@gmailcom"
+    @State var password = "Validate1!"
+    @State var cpassword = "Validate1!"
     
     func doSignUp(){
-        viewModel.apiSignUp(email: email, password: password, completion: { result in
-            if !result{
-                //when error, show dialog or toast
-            } else {
-                
-                var user = User(email: email, displayName: fullname, password: password, imgUser: "")
-                user.uid = session.session?.uid
-                // save user to Firestore
-                presentation.wrappedValue.dismiss()
-            }
-        })
+        if viewModel.isValidEmail(email) && viewModel.isValidPassword(password: password) {
+            viewModel.apiSignUp(email: email, password: password, completion: { result in
+                if !result{
+                    //when error, show dialog or toast
+                }
+//                else {
+//
+//                    var user = User(email: email, displayName: fullname, password: password, imgUser: "")
+//                    user.uid = session.session?.uid
+//                    // save user to Firestore
+//                    presentation.wrappedValue.dismiss()
+//                }
+            })
+        } else if viewModel.isValidEmail(email) {
+            print("Incorrect password, check again")
+        } else if viewModel.isValidPassword(password: password) {
+            print("Incorrect email, check again")
+        } else {
+            print("Incorrect email and password")
+        }
     }
     
     var body: some View {
