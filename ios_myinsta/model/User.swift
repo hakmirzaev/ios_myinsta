@@ -15,12 +15,29 @@ struct User: Hashable {
         self.imgUser = imgUser
     }
     
+    init(email: String?, displayName: String?, imgUser: String){
+        self.email = email
+        self.displayName = displayName
+        self.imgUser = imgUser
+    }
+    
     init(uid:String, email: String?, displayName: String?, password: String?, imgUser: String){
         self.uid = uid
         self.email = email
         self.displayName = displayName
         self.password = password
         self.imgUser = imgUser
+    }
+    init(uid:String, email: String?, displayName: String?, imgUser: String){
+        self.uid = uid
+        self.email = email
+        self.displayName = displayName
+        self.imgUser = imgUser
+    }
+    init(email: String?, displayName: String?, password: String?){
+        self.email = email
+        self.displayName = displayName
+        self.password = password
     }
     init(uid:String, email: String?, displayName: String?){
         self.uid = uid

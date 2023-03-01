@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
+    @EnvironmentObject var session: SessionStore
     @State var action = false
     @State var isImagePickerDisplay = false
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -25,24 +27,27 @@ struct HomeProfileScreen: View {
         return UIScreen.width/CGFloat(level) - 15
     }
     
+    func uploadImage(){
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadMyImage(uid: uid, image: selectedImage!)
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
                 VStack(spacing: 0){
                     ZStack{
-                        if selectedImage == nil {
-                            VStack{
+                        VStack{
+                            if !viewModel.imgUser.isEmpty {
+                                WebImage(url: URL(string: viewModel.imgUser)).resizable().clipShape(Circle())
+                                    .frame(width: 70, height: 70)
+                                    .padding(.all, 2)
+                            } else {
                                 Image("ic_person").resizable().clipShape(Circle())
                                     .frame(width: 70, height: 70)
                                     .padding(.all, 2)
-                            }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
-                        } else {
-                            VStack{
-                                Image(uiImage: selectedImage!).resizable().clipShape(Circle())
-                                    .frame(width: 70, height: 70)
-                                    .padding(.all, 2)
-                            }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
-                        }
+                            }
+                        }.overlay(RoundedRectangle(cornerRadius: 37).stroke(Utils.color2, lineWidth: 2))
                         
                         HStack{
                             Spacer()
@@ -66,17 +71,17 @@ struct HomeProfileScreen: View {
                                         }
                                     ])
                                 })
-                                .sheet(isPresented: $isImagePickerDisplay, content: {
+                                .sheet(isPresented: $isImagePickerDisplay, onDismiss: uploadImage, content: {
                                     ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
                                 })
                             }
                         }.frame(width: 77, height: 77)
                     }
-                    Text("Bekhruz Hakmirzaev").foregroundColor(.black)
+                    Text(viewModel.displayName).foregroundColor(.black)
                         .font(.system(size: 17))
                         .fontWeight(.medium)
                         .padding(.top, 15)
-                    Text("hakmirzaevb@gmail.com").foregroundColor(.black)
+                    Text(viewModel.email).foregroundColor(.black)
                         .font(.system(size: 17))
                         .fontWeight(.medium)
                         .padding(.top, 3)
@@ -152,8 +157,10 @@ struct HomeProfileScreen: View {
             )
             .navigationBarTitle("Profile", displayMode: .inline)
         }.onAppear{
+            let uid = session.session?.uid
+            viewModel.apiLoadUser(uid: uid!)
             viewModel.apiPostList {
-                print(viewModel.items.count)
+//                print(viewModel.items.count)
             }
         }
     }

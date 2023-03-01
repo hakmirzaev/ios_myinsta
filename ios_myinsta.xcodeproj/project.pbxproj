@@ -42,6 +42,8 @@
 		0EAF85D9299E03790069B341 /* LikesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAF85D8299E03790069B341 /* LikesViewModel.swift */; };
 		0EBA3AEA29941F5900B85BA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EBA3AEC29941F5900B85BA7 /* Localizable.strings */; };
 		0EBA3AEF29941F8C00B85BA7 /* Billabong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EBA3AEE29941F8800B85BA7 /* Billabong.ttf */; };
+		0ED61ADA29AFDDA00089F2A9 /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED61AD929AFDDA00089F2A9 /* DatabaseStore.swift */; };
+		0ED61ADC29AFDF280089F2A9 /* StorageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED61ADB29AFDF280089F2A9 /* StorageStore.swift */; };
 		2099F6B96044966E8D41A5EC /* Pods_ios_myinsta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2650EB64E08B098B4291C8 /* Pods_ios_myinsta.framework */; };
 		2879A9E8D667371C745E0BD6 /* Pods_ios_myinstaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D708324E09FD5990446677 /* Pods_ios_myinstaTests.framework */; };
 		6AA621155DFACA9B4C1F4DEB /* Pods_ios_myinsta_ios_myinstaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16FACD2AF47BC4B9955B131 /* Pods_ios_myinsta_ios_myinstaUITests.framework */; };
@@ -107,6 +109,8 @@
 		0EBA3AED29941F6500B85BA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EBA3AEE29941F8800B85BA7 /* Billabong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Billabong.ttf; sourceTree = "<group>"; };
 		0EBA3AF029941FBA00B85BA7 /* ios-myinsta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ios-myinsta-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0ED61AD929AFDDA00089F2A9 /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
+		0ED61ADB29AFDF280089F2A9 /* StorageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStore.swift; sourceTree = "<group>"; };
 		2A8F5ADD875AFCF074B57897 /* Pods-ios_myinstaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinstaTests.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinstaTests/Pods-ios_myinstaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		337E544C0636A11792AD6EF8 /* Pods-ios_myinsta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta.debug.xcconfig"; path = "Target Support Files/Pods-ios_myinsta/Pods-ios_myinsta.debug.xcconfig"; sourceTree = "<group>"; };
 		80E24316849DA3428F338BF4 /* Pods-ios_myinsta-ios_myinstaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_myinsta-ios_myinstaUITests.release.xcconfig"; path = "Target Support Files/Pods-ios_myinsta-ios_myinstaUITests/Pods-ios_myinsta-ios_myinstaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				0E8E3DDE299D4BA60008C638 /* SessionStore.swift */,
+				0ED61AD929AFDDA00089F2A9 /* DatabaseStore.swift */,
+				0ED61ADB29AFDF280089F2A9 /* StorageStore.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 			files = (
 				0E7CDA40299EAC48007263FA /* SearchViewModel.swift in Sources */,
 				0E8E3DD8299D4B520008C638 /* HomeUploadScreen.swift in Sources */,
+				0ED61ADC29AFDF280089F2A9 /* StorageStore.swift in Sources */,
 				0E8E3DD6299D4B480008C638 /* HomeSearchScreen.swift in Sources */,
 				0E923A872993BD08006A175A /* Persistence.swift in Sources */,
 				0E3B2A5629A0939D00AC6863 /* SignInViewModel.swift in Sources */,
@@ -578,6 +585,7 @@
 				0E923AB02993BD4C006A175A /* StarterScreen.swift in Sources */,
 				0E923AB42993BD73006A175A /* SignUpScreen.swift in Sources */,
 				0EAF85D4299DFE6B0069B341 /* Post.swift in Sources */,
+				0ED61ADA29AFDDA00089F2A9 /* DatabaseStore.swift in Sources */,
 				0E8E3DD4299D4B1D0008C638 /* HomeFeedScreen.swift in Sources */,
 				0E8E3DE6299D51D20008C638 /* ImagePickerView.swift in Sources */,
 				0EAF85D7299E00700069B341 /* PostCell.swift in Sources */,

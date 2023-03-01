@@ -5,20 +5,13 @@ class SearchViewModel: ObservableObject{
     @Published var isLoading = false
     @Published var items: [User] = []
     
-    func apiUserList(completion: @escaping () -> ()) {
+    func apiUserList(uid: String, keyword: String){
         isLoading = true
-        items.removeAll()
+        self.items.removeAll()
         
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        items.append(User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
-        
-        isLoading = false
-        completion()
+        DatabaseStore().loadUsers(keyword: keyword, completion: {users in
+            self.items = users!
+            self.isLoading = false
+        })
     }
 }

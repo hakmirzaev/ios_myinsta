@@ -11,8 +11,8 @@ struct SignUpScreen: View {
     @Environment(\.presentationMode) var presentation
     @ObservedObject var viewModel = SignUpViewModel()
     @EnvironmentObject var session: SessionStore
-    @State var fullname = "Bekhruzjon"
-    @State var email = "hakmirzaev@gmailcom"
+    @State var fullname = "Asliddin"
+    @State var email = "ahakmirzaev@gmail.com"
     @State var password = "Validate1!"
     @State var cpassword = "Validate1!"
     
@@ -22,13 +22,13 @@ struct SignUpScreen: View {
                 if !result{
                     //when error, show dialog or toast
                 }
-//                else {
-//
-//                    var user = User(email: email, displayName: fullname, password: password, imgUser: "")
-//                    user.uid = session.session?.uid
-//                    // save user to Firestore
-//                    presentation.wrappedValue.dismiss()
-//                }
+                else {
+                    // save user to Firestore
+                    var user = User(email: email, displayName: fullname, password: password, imgUser: "")
+                    user.uid = session.session?.uid
+                    viewModel.apiStoreUser(user: user)
+                    presentation.wrappedValue.dismiss()
+                }
             })
         } else if viewModel.isValidEmail(email) {
             print("Incorrect password, check again")
