@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeFeedScreen: View {
+    @EnvironmentObject var session: SessionStore
     @Binding var tabSelection: Int
     @ObservedObject var viewModel = FeedViewModel()
     var body: some View {
@@ -15,9 +16,15 @@ struct HomeFeedScreen: View {
             ZStack{
                 List{
                     ForEach(viewModel.items, id: \.self){ item in
-                        PostCell(post: item).listRowInsets(EdgeInsets())
+                        if let uid = session.session?.uid! {
+                            FeedPostCell(uid:uid, viewModel: viewModel, post: item)
+                                .listRowInsets(EdgeInsets())
+                        }
                     }
                 }.listStyle(PlainListStyle())
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }
             .navigationBarItems(trailing: Button(action: {
                 self.tabSelection = 2
@@ -26,8 +33,8 @@ struct HomeFeedScreen: View {
             }))
             .navigationBarTitle("Instagram", displayMode: .inline)
         }.onAppear{
-            viewModel.apiPostList {
-                print(viewModel.items.count)
+            if let uid = session.session?.uid! {
+                viewModel.apiFeedList(uid: uid)
             }
         }
     }

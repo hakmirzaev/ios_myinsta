@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeUploadScreen: View {
+    @EnvironmentObject var session: SessionStore
+    var viewModel = UploadViewModel()
     @Binding var tabSelection: Int
     @State var caption = ""
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -15,11 +17,19 @@ struct HomeUploadScreen: View {
     @State var isImagePickerDisplay = false
     @State var action = false
     
-    func uploadPost()  {
-        if caption != nil || selectedImage != nil {
+    func uploadPost() {
+        if caption.isEmpty || selectedImage == nil {
             return
         }
-        // Send the post to server
+        //Send the post to server
+        let uid = (session.session?.uid)!
+        viewModel.apiUploadPost(uid: uid, caption: caption, image: selectedImage!){result in
+            if result {
+                self.selectedImage = nil
+                self.caption = ""
+                self.tabSelection = 0
+            }
+        }
     }
     
     var body: some View {
@@ -74,9 +84,11 @@ struct HomeUploadScreen: View {
                     }.padding(.top, 10).padding(.leading, 20).padding(.trailing, 20)
                     Spacer()
                 }
+                if viewModel.isLoading {
+                    ProgressView()
+                }
             }
             .navigationBarItems(trailing: Button(action: {
-                self.tabSelection = 0
                 self.uploadPost()
             }, label: {
                 Image(systemName: "square.and.arrow.up").resizable().foregroundColor(.black).font(.system(size: 15))
