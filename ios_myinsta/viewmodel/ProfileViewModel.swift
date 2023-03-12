@@ -9,6 +9,8 @@ class ProfileViewModel: ObservableObject{
     @Published var email = ""
     @Published var displayName = ""
     @Published var imgUser = ""
+    @Published var following: [User] = []
+    @Published var followers: [User] = []
     
     func apiPostList(uid: String) {
         isLoading = true
@@ -46,5 +48,25 @@ class ProfileViewModel: ObservableObject{
     
     func apiUpdateMyImage(uid: String, imgUser: String?){
         DatabaseStore().updateMyImage(uid:uid, imgUser: imgUser )
+    }
+    
+    func apiLoadFollowing(uid: String) {
+        isLoading = true
+        items.removeAll()
+        
+        DatabaseStore().loadFollowing(uid: uid, completion: {users in
+            self.following = users!
+            self.isLoading = false
+        })
+    }
+    
+    func apiLoadFollowers(uid: String) {
+        isLoading = true
+        items.removeAll()
+        
+        DatabaseStore().loadFollowers(uid: uid, completion: {users in
+            self.followers = users!
+            self.isLoading = false
+        })
     }
 }

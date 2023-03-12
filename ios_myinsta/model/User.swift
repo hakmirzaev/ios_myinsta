@@ -7,6 +7,7 @@ struct User: Hashable {
     var displayName: String?
     var password: String?
     var imgUser: String?
+    var isFollowed: Bool = false
     
     init(email: String?, displayName: String?, password: String?, imgUser: String){
         self.email = email

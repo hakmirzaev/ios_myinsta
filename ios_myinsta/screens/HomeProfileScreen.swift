@@ -89,7 +89,7 @@ struct HomeProfileScreen: View {
                     //post, following, followers count
                     HStack{
                         VStack{
-                            Text("625").foregroundColor(.black)
+                            Text("\(viewModel.items.count)").foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                             Text("Posts").foregroundColor(.gray)
@@ -98,7 +98,7 @@ struct HomeProfileScreen: View {
                         VStack{}.frame(maxWidth: 1, maxHeight: 25)
                             .background(.black.opacity(0.5))
                         VStack{
-                            Text("4,235").foregroundColor(.black)
+                            Text("\(viewModel.followers.count)").foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                             Text("Followers").foregroundColor(.gray)
@@ -107,7 +107,7 @@ struct HomeProfileScreen: View {
                         VStack{}.frame(maxWidth: 1, maxHeight: 25)
                             .background(.black.opacity(0.5))
                         VStack{
-                            Text("897").foregroundColor(.black)
+                            Text("\(viewModel.following.count)").foregroundColor(.black)
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                             Text("Following").foregroundColor(.gray)
@@ -162,6 +162,8 @@ struct HomeProfileScreen: View {
             let uid = (session.session?.uid)!
             viewModel.apiPostList(uid: uid)
             viewModel.apiLoadUser(uid: uid)
+            viewModel.apiLoadFollowing(uid: uid)
+            viewModel.apiLoadFollowers(uid: uid)
         }
     }
 }

@@ -9,7 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct UserCell: View {
+    var uid: String
     var user: User
+    var viewModel: SearchViewModel
+    
     var body: some View {
         HStack(spacing: 0){
             VStack{
@@ -36,13 +39,28 @@ struct UserCell: View {
             }.padding(.leading, 15)
             Spacer()
             Button(action: {
-                
+                if user.isFollowed {
+                    viewModel.apiUnFollowUser(uid: uid, to: user)
+                } else {
+                    viewModel.apiFollowUser(uid: uid, to: user)
+                }
             }, label: {
-                Text("Following")
-                    .font(.system(size: 15))
-                    .foregroundColor(.black.opacity(0.5))
-                    .frame(width: 90, height: 30)
-                    .overlay(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
+                if user.isFollowed {
+                    Text("Following")
+                        .font(.system(size: 15))
+                        .foregroundColor(.black.opacity(0.5))
+                        .fontWeight(.bold)
+                        .frame(width: 90, height: 30)
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
+                } else {
+                    Text("Follow")
+                        .font(.system(size: 15))
+                        .frame(width: 90, height: 30)
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .background(.blue).cornerRadius(5)
+                        .overlay(RoundedRectangle(cornerRadius: 5).stroke(.gray, lineWidth: 1))
+                }
             })
         }.padding(.all, 20)
     }
@@ -50,6 +68,6 @@ struct UserCell: View {
 
 struct UserCell_Previews: PreviewProvider {
     static var previews: some View {
-        UserCell(user: User(uid: "1", email: "hakmirzaevb@gmail.com", displayName: "Bekhruzjon"))
+        UserCell(uid: "uid", user: User(uid: "1", email: "hakmirzaevbekhruzjon@gmail.com", displayName: "bekhruzjon"),viewModel: SearchViewModel())
     }
 }
