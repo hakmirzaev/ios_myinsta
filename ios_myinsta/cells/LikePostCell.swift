@@ -76,7 +76,7 @@ struct LikePostCell: View {
                     }
                 })
                 Button(action: {
-                    
+                    viewModel.shareButton()
                 }, label: {
                     Image("ic_share").resizable().frame(width: 25, height: 25).foregroundColor(.black)
                 })
