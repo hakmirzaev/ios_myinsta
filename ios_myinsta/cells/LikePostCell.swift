@@ -13,9 +13,16 @@ struct LikePostCell: View {
         VStack(spacing: 0){
             HStack{
                 VStack{
-                    Image("ic_person").resizable().clipShape(Circle())
-                        .frame(width: 46, height: 46)
-                        .padding(.all, 2)
+                    if !post.imgUser!.isEmpty {
+                        WebImage(url: URL(string: post.imgUser!))
+                            .resizable().clipShape(Circle())
+                            .frame(width: 46, height: 46)
+                            .padding(.all, 2)
+                    } else {
+                        Image("ic_person").resizable().clipShape(Circle())
+                            .frame(width: 46, height: 46)
+                            .padding(.all, 2)
+                    }
                 }.overlay(RoundedRectangle(cornerRadius: 25)
                     .stroke(Utils.color2, lineWidth: 2))
                 VStack(alignment: .leading, spacing: 3) {
@@ -29,10 +36,21 @@ struct LikePostCell: View {
                 }
                 Spacer()
                 Button(action: {
-                    
+                    self.showingAlert.toggle()
                 }, label: {
-                    Image("ic_more").font(.system(size: 15)).foregroundColor(.black)
+                    if uid == post.uid {
+                        Image("ic_more").font(.system(size: 15)).foregroundColor(.black)
+                    }
                 })
+                .buttonStyle(PlainButtonStyle())
+                .alert(isPresented: $showingAlert){
+                    let title = "Delete"
+                    let message = "Do you want to delete this post?"
+                    return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                        //some action
+                        viewModel.apiRemovePost(uid: uid, post: post)
+                    }), secondaryButton: .cancel())
+                }
             }.padding(.top, 15)
                 .padding(.leading, 15)
                 .padding(.trailing, 15)
@@ -42,10 +60,20 @@ struct LikePostCell: View {
                 .padding(.top, 15)
             HStack(spacing: 10) {
                 Button(action: {
-                    
+                    if post.isLiked! {
+                        post.isLiked = false
+                    } else {
+                        post.isLiked = true
+                    }
+                    viewModel.apiLikePost(uid: uid, post: post)
                 }, label: {
-                    Image("ic_like_off").resizable().frame(width: 25, height: 25)
-                        .foregroundColor(.black)
+                    if post.isLiked! {
+                        Image("ic_like_on").resizable().frame(width: 25, height: 25)
+                            .foregroundColor(.red)
+                    } else {
+                        Image("ic_like_off").resizable().frame(width: 25, height: 25)
+                            .foregroundColor(.black)
+                    }
                 })
                 Button(action: {
                     

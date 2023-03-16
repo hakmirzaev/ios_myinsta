@@ -20,6 +20,17 @@ struct MyPostCell: View {
                 WebImage(url: URL(string: post.imgPost!))
                     .resizable().frame(width: length, height: length)
                     .scaledToFit()
+                    .onLongPressGesture {
+                        self.showingAlert = true
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        let title = "Delete"
+                        let message = "Do you want to delete this post?"
+                        return Alert(title: Text(title), message: Text(message), primaryButton: .destructive(Text("Confirm"), action: {
+                            // Some action
+                            viewModel.apiRemovePost(uid: uid, post: post)
+                        }), secondaryButton: .cancel())
+                    }
                 Text(post.caption!)
                     .foregroundColor(.black)
                     .font(.system(size: 16))

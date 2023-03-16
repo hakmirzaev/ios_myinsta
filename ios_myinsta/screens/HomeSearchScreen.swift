@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeSearchScreen: View {
     @ObservedObject var viewModel = SearchViewModel()
     @EnvironmentObject var session: SessionStore
+    @State var showProfile = false
     @State var keyword = ""
     var body: some View {
         NavigationView{
@@ -25,6 +26,12 @@ struct HomeSearchScreen: View {
                         ForEach(viewModel.items,  id: \.self){ item in
                             let uid = (session.session?.uid)!
                             UserCell(uid: uid, user: item, viewModel: viewModel)
+                                .onTapGesture {
+                                    self.showProfile.toggle()
+                                }
+                                .sheet(isPresented: $showProfile, content: {
+                                    OthersProfileScreen(uid: item.uid!, user: item)
+                                })
                                 .listRowInsets(EdgeInsets())
                                 .buttonStyle(PlainButtonStyle())
                         }

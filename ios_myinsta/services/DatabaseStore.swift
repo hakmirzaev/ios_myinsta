@@ -11,7 +11,18 @@ class DatabaseStore: ObservableObject {
     
     var store = Firestore.firestore()
     func storeUser(user: User) {
-        let params = ["uid": user.uid, "email": user.email, "displayName": user.displayName, "password": user.password]
+        // device_type = "I"
+        // device_id = "37F0CE0B-E804-4C89-B377-F96BD03B0D9B"
+        // device_token = "asjhdjashdjashdjahsdjahsdajshdajsdhakdaksjdha..."
+        
+        let device_type = "I"
+        let device_id = UIDevice.current.identifierForVendor?.uuidString
+        let device_token = ""
+        
+        let params = ["uid": user.uid, "email": user.email,"displayName": user.displayName,"password": user.password
+                      ,"device_type": device_type
+                      ,"device_id": device_id
+                      ,"device_token": device_token]
         store.collection(USER_PATH).document(user.uid!).setData(params)
     }
     
@@ -273,6 +284,62 @@ class DatabaseStore: ObservableObject {
         if let postId = post.postId{
             do {
                 try store.collection(USER_PATH).document(uid).collection(FEED_PATH).document(postId).delete()
+            }catch {
+                print("There was an error while trying to delete feed \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    func likeFeedPost(uid: String, post: Post) {
+        if let postID = post.postId {
+            do {
+                try store.collection(USER_PATH).document(uid).collection(FEED_PATH).document(postID).updateData(["isLiked": post.isLiked!])
+                if post.uid == uid {
+                    try store.collection(USER_PATH).document(uid).collection(POST_PATH).document(postID).updateData(["isLiked": post.isLiked!])
+                }
+            } catch {
+                print("There was an error while trying to delete feed \(error.localizedDescription).")
+            }
+        }
+    }
+    
+    func loadLikes(uid:String, completion: @escaping ([Post]?) -> ()) {
+        var items: [Post] = []
+        
+        store.collection(USER_PATH).document(uid).collection(FEED_PATH).whereField("isLiked", isEqualTo: true).getDocuments{ querySnapshot, error in
+            if let documents = querySnapshot?.documents {
+                documents.compactMap{ document in
+                    let postId = document["postId"] as? String ?? ""
+                    let caption = document["caption"] as? String ?? ""
+                    let imgPost = document["imgPost"] as? String ?? ""
+                    
+                    let displayName = document["displayName"] as? String ?? ""
+                    let imgUser = document["imgUser"] as? String ?? ""
+                    let time = document["time"] as? String ?? ""
+                    let uid = document["uid"] as? String ?? ""
+                    
+                    let isLiked = document["isLiked"] as? Bool ?? false
+                    
+                    var post = Post(postId:postId, caption: caption, imgPost: imgPost)
+                    post.displayName = displayName
+                    post.imgUser = imgUser
+                    post.time = time
+                    post.uid = uid
+                    post.isLiked = isLiked
+                    
+                    items.append(post)
+                }
+                completion(items)
+            }
+        }
+    }
+    
+    
+    func removeMyPost(uid: String, post: Post) {
+        if let postId = post.postId{
+            do {
+                try store.collection(USER_PATH).document(uid).collection(FEED_PATH).document(postId).delete()
+                try store.collection(USER_PATH).document(uid).collection(POST_PATH).document(postId).delete()
             }catch {
                 print("There was an error while trying to delete feed \(error.localizedDescription).")
             }

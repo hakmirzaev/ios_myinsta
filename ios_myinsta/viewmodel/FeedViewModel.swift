@@ -14,4 +14,13 @@ class FeedViewModel: ObservableObject {
             self.isLoading = false
         })
     }
+    
+    func apiLikePost(uid: String, post: Post){
+        DatabaseStore().likeFeedPost(uid: uid, post: post)
+    }
+    
+    func apiRemovePost(uid: String, post: Post) {
+        DatabaseStore().removeMyPost(uid: uid, post: post)
+        apiFeedList(uid: uid)
+    }
 }
